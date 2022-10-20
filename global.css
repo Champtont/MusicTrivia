@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400;700&display=swap");
 
+/*CSS for all pages*/
+
 html {
   marigin: 0;
   font-family: Signika Negative;
@@ -13,13 +15,15 @@ html {
 
 body {
   width: 100%;
+  margin: 0;
 }
 
 #logo-box {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
+  margin-top: 0;
+  padding-top: 1em;
   margin-bottom: 1em;
   backdrop-filter: blur(5px);
 }
@@ -30,4 +34,63 @@ body {
   margin-right: auto;
   backdrop-filter: blur(5px);
   border-radius: 20px;
+  text-align: center;
+  padding: 2em 0.5em 2em 0.5em;
+  transition: box-shadow 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
+}
+
+#container:hover {
+  box-shadow: blue 0px 0px 30px;
+  background-color: rgba(0, 0, 0, 0.447);
+}
+
+/*index stuff*/
+h1 {
+  text-shadow: blue 0px 0px 30px;
+  font-size: 60pt;
+  line-height: 0.8em;
+  margin: 0;
+}
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1.5em;
+  font-size: 16pt;
+}
+#start-button {
+  font-family: inherit;
+  font-size: 30pt;
+  font-weight: 700;
+  padding: 0.1em 1em 0.1em 1em;
+  border-radius: 16px;
+  border: none;
+  background-color: rgb(240, 248, 255);
+  transition: transform 0.5s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+}
+#start-button:hover {
+  transform: scale(1.1);
+  box-shadow: blue 0px 0px 30px;
+  text-shadow: blue 0px 0px 10px;
+  color: rgb(3, 3, 190);
+}
+/*questions*/
+
+h2 {
+  font-size: 25pt;
+}
+.stepford {
+  font-family: inherit;
+  color: aliceblue;
+  font-weight: 400;
+  background-color: rgba(139, 13, 13, 0.7);
+  border: linear-gradient(90deg, transparent, white, transparent) 2pt solid;
+  border-radius: 20px;
+  width: 50%;
+}
+#grid {
+  display: grid;
+  columns: 2;
+  grid-row: 2;
 }
