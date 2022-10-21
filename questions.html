@@ -10,15 +10,25 @@
   <body>
     <div id="logo-box"><img src="" /></div>
     <div id="container">
-      <div id="grid">
-        <div id="question">
-          <h2>A Question</h2>
+      <div id="question-box">
+        <h2 id="question">A Question</h2>
+      </div>
+      <div id="choice-box">
+        <button class="stepford grid-item1"><p class="option">1</p></button>
+        <button class="stepford grid-item2"><p class="option">2</p></button>
+        <button class="stepford grid-item3"><p class="option">3</p></button>
+        <button class="stepford grid-item4"><p class="option">4</p></button>
+      </div>
+      <div id="next-reset">
+        <div id="score-box">
+          <h6 id="point-title">POINTS</h6>
+          <input id="pointsScored" class="scoreKeep" type="number" disabled />
+          <span id="slash">/</span>
+          <input id="maxPoints" class="scoreKeep" type="number" disabled />
         </div>
-        <div id="choice-box">
-          <button class="stepford"><p id="option1">1</p></button>
-          <button class="stepford"><p id="option2">2</p></button>
-          <button class="stepford"><p id="option3">3</p></button>
-          <button class="stepford"><p id="option4">4</p></button>
+        <div id="next-box"><button id="next" class="typical">NEXT</button></div>
+        <div id="reset-box">
+          <button id="reset" class="typical">RESET</button>
         </div>
       </div>
     </div>
