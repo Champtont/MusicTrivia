@@ -3,6 +3,7 @@ const questionContainer = document.getElementById("container");
 const questionele = document.getElementById("question");
 const pText = document.querySelectorAll(".option");
 const answerButtons = document.querySelectorAll(".stepford");
+const nextButton = document.getElementById("next");
 
 console.log(answerButtons);
 //we need questions to work with! An Array of objects is required.
@@ -80,7 +81,7 @@ maxQInput.value = maxQuestions;
 const shuffleQuestions = questionsArray.sort(() => Math.random() - 0.5);
 
 //we have to set index to zero
-const currentQuestionIndex = 0;
+let currentQuestionIndex = 0;
 //Making Things work!!!
 
 //we have to initialize the game by:
@@ -104,25 +105,39 @@ const showQuestion = (question) => {
   }
 };
 
+//add points
+const addPoint = () => {
+  score++;
+  pointInput.value = score;
+};
+
 //create select answer event
 function selectAnswer(event) {
-  //gives info on button clicked
-  const selectedbutton = event.target;
-  const correct = selectedbutton.answers;
-  console.log(correct);
+  /*gives info on button clicked...I needed a for loop to stop the e.target from choosing a new target.
+  I was having trouble with calling the correct answers later in the code, then I realized that it was
+  because I was naming the variable inside of the function. fun fact: you don't have to do that =)*/
+  for (let i = 0; i < answerButtons.length; i++) {
+    const selectedbutton = event.target;
+    correct = selectedbutton.answers;
+    console.log(correct);
+  }
 }
 
 //creating a set question function:
 const setNextQuestion = () => {
-  showQuestion(shuffleQuestions[currentQuestionIndex]);
+  showQuestion(shuffleQuestions[currentQuestionIndex + 1]);
+  currentQuestionIndex++;
 };
-
 //Then calling inittial function: This will display immediately:
 setNextQuestion();
 
+const callNext = (event) => {
+  if (correct === true) {
+    addPoint();
+  }
+  setNextQuestion();
+  console.log("push");
+};
+
+nextButton.addEventListener("click", callNext);
 //try to create a correct answer data set This should check answer inside next button
-/*if (answers.correct === true) {
-  score++;
-} else {
-  score--;
-}*/
