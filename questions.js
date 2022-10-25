@@ -5,7 +5,7 @@ const pText = document.querySelectorAll(".option");
 const answerButtons = document.querySelectorAll(".stepford");
 const nextButton = document.getElementById("next");
 
-//set songs
+//set songs for use in "What's that tune? type questions"
 const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
 
 console.log(answerButtons);
@@ -116,7 +116,8 @@ const questionsArray = [
 //These may change
 let score = 0;
 let maxQuestions = questionsArray.length;
-//lets display these values
+
+//let's display these values
 const pointInput = document.getElementById("pointsScored");
 const maxQInput = document.getElementById("maxPoints");
 
