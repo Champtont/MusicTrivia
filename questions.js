@@ -5,6 +5,9 @@ const pText = document.querySelectorAll(".option");
 const answerButtons = document.querySelectorAll(".stepford");
 const nextButton = document.getElementById("next");
 
+//set songs
+const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
+
 console.log(answerButtons);
 //we need questions to work with! An Array of objects is required.
 const questionsArray = [
@@ -65,6 +68,49 @@ const questionsArray = [
       { text: "Journey", correct: false },
     ],
   },
+  {
+    question:
+      "In 1984, what song was Tina Turner’s first and only Billboard Hot 100 number-one hit?",
+    answers: [
+      { text: "What’s Love Got to Do with It", correct: true },
+      { text: "The Best", correct: false },
+      { text: "Better Be Good To Me", correct: false },
+      { text: "Private Dancer", correct: false },
+    ],
+  },
+  {
+    question:
+      "What rock band and hip hop group collaborated on the hit 80’s song “Walk This Way?",
+    answers: [
+      { text: "Run-DMC and Aerosmith", correct: true },
+      { text: "The Beastie Boys And Janes Addiction", correct: false },
+      { text: "Public Enemy And Van Halen", correct: false },
+      { text: "Fat Boys And Mötley Crüe", correct: false },
+    ],
+  },
+  {
+    question:
+      "What English singer had a hit in 1981 with the song “In the Air Tonight?",
+    answers: [
+      { text: "Phil Collins", correct: true },
+      { text: "George Michael", correct: false },
+      { text: "John Waite", correct: false },
+      { text: "Sting", correct: false },
+    ],
+  },
+  {
+    question: "What song is this?",
+    song: sweetHome,
+    answers: [
+      {
+        text: "Sweet Home Alabama",
+        correct: true,
+      },
+      { text: "Black Betty", correct: false },
+      { text: "Free Bird", correct: false },
+      { text: "Alabama", correct: false },
+    ],
+  },
 ];
 
 //These may change
@@ -88,6 +134,9 @@ let currentQuestionIndex = 0;
 //creating "question showing" function which will also loop through answers:
 const showQuestion = (question) => {
   questionele.innerText = question.question;
+  if (question.song) {
+    question["song"].play();
+  }
   //randomizing location of answers
   const answers = question.answers.sort(() => Math.random() - 0.5);
 
@@ -125,7 +174,7 @@ function selectAnswer(event) {
 
 //creating a set question function:
 const setNextQuestion = () => {
-  showQuestion(shuffleQuestions[currentQuestionIndex + 1]);
+  showQuestion(shuffleQuestions[currentQuestionIndex]);
   currentQuestionIndex++;
 };
 //Then calling inittial function: This will display immediately:
@@ -135,6 +184,7 @@ const callNext = (event) => {
   if (correct === true) {
     addPoint();
   }
+  sweetHome.pause();
   setNextQuestion();
   console.log("push");
 };

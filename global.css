@@ -155,13 +155,13 @@ blockquote {
 }
 #pointsScored {
   direction: rtl;
-  color: green;
+  color: chartreuse;
 }
 #slash {
   font-size: 30pt;
 }
 #maxPoints {
-  color: darkred;
+  color: goldenrod;
 }
 .typical {
   background-color: rgba(240, 248, 255, 0.753);
