@@ -7,6 +7,7 @@ const nextButton = document.getElementById("next");
 
 //set songs for use in "What's that tune? type questions"
 const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
+const iCouldFall = new Audio("/assets/i could fall in love.mp3");
 
 console.log(answerButtons);
 //we need questions to work with! An Array of objects is required.
@@ -111,6 +112,16 @@ const questionsArray = [
       { text: "Alabama", correct: false },
     ],
   },
+  {
+    question: "Who is the Artist of this song?",
+    song: iCouldFall,
+    answers: [
+      { text: "Salena", correct: true },
+      { text: "Jennifer Lopez", correct: false },
+      { text: "Gloria Trevi", correct: false },
+      { text: "Paulina Rubio", correct: false },
+    ],
+  },
 ];
 
 //These may change
@@ -185,7 +196,13 @@ const callNext = (event) => {
   if (correct === true) {
     addPoint();
   }
-  sweetHome.pause();
+  for (let i = 0; i < questionsArray.length; i++) {
+    if (questionsArray[i].song) {
+      questionsArray[i].song.pause();
+    }
+  }
+  //sweetHome.pause();
+  //iCouldFall.pause();
   setNextQuestion();
   console.log("push");
 };
