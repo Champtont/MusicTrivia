@@ -8,6 +8,7 @@ const nextButton = document.getElementById("next");
 //set songs for use in "What's that tune? type questions"
 const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
 const iCouldFall = new Audio("/assets/i could fall in love.mp3");
+const weWillRockYou = new Audio("/assets/We Will Rock You.mp3");
 
 console.log(answerButtons);
 //we need questions to work with! An Array of objects is required.
@@ -120,6 +121,16 @@ const questionsArray = [
       { text: "Jennifer Lopez", correct: false },
       { text: "Gloria Trevi", correct: false },
       { text: "Paulina Rubio", correct: false },
+    ],
+  },
+  {
+    question: "Which band does this song belong to?",
+    song: weWillRockYou,
+    answers: [
+      { text: "Queen", correct: true },
+      { text: "Kiss", correct: false },
+      { text: "Boston", correct: false },
+      { text: "Styx", correct: false },
     ],
   },
 ];

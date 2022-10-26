@@ -179,3 +179,37 @@ blockquote {
   text-shadow: rgba(0, 0, 139, 0.642) 0px 0px 5px;
   background-color: rgba(240, 248, 255, 0.858);
 }
+
+.hide {
+  display: none;
+}
+
+/*Make it Responsive for mobile*/
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 25pt;
+  }
+  #question {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 20pt;
+  }
+  .stepford {
+    font-size: 12pt;
+  }
+  #next-reset {
+    margin-top: 5px;
+  }
+  #pointsScored {
+    width: 20%;
+  }
+  #maxPoints {
+    width: 30%;
+  }
+  #next {
+    margin-right: 5px;
+  }
+  #getResults {
+    margin-right: 5px;
+  }
+}
