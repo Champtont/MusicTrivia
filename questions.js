@@ -11,6 +11,10 @@ const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
 const iCouldFall = new Audio("/assets/i could fall in love.mp3");
 const weWillRockYou = new Audio("/assets/We Will Rock You.mp3");
 
+//soundeffects
+const rightAnswer = new Audio("/assets/Ding-sound-effect.mp3");
+const wrongAnswer = new Audio("/assets/wronganswer-37702.mp3");
+
 console.log(answerButtons);
 //we need questions to work with! An Array of objects is required.
 const questionsArray = [
@@ -219,11 +223,15 @@ setNextQuestion();
 const checkAnswer = () => {
   if (correct === true) {
     addPoint();
+    rightAnswer.play();
+    rightAnswer.currentTime = 0;
     setNextQuestion();
   } else if (correct === false) {
+    wrongAnswer.play();
+    wrongAnswer.currentTime = 0;
     setNextQuestion();
   } else if (correct === undefined) {
-    alert("you havent chosen an answer");
+    alert("you havent selected an answer");
   }
 };
 
