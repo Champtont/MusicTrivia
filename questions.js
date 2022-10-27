@@ -4,6 +4,7 @@ const questionele = document.getElementById("question");
 const pText = document.querySelectorAll(".option");
 const answerButtons = document.querySelectorAll(".stepford");
 const nextButton = document.getElementById("next");
+const finishButton = document.getElementById("getResults");
 
 //set songs for use in "What's that tune? type questions"
 const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
@@ -139,6 +140,11 @@ const questionsArray = [
 let score = 0;
 let maxQuestions = questionsArray.length;
 
+//calling a button
+const getButton = () => {
+  finishButton.classList.remove("hide");
+  nextButton.classList.add("hide");
+};
 //let's display these values
 const pointInput = document.getElementById("pointsScored");
 const maxQInput = document.getElementById("maxPoints");
@@ -192,30 +198,51 @@ function selectAnswer(event) {
     const selectedbutton = event.target;
     correct = selectedbutton.answers;
     console.log(correct);
+    if (selectedbutton === undefined) {
+      correct = undefined;
+    }
   }
+  return correct;
 }
+
+let correct;
 
 //creating a set question function:
 const setNextQuestion = () => {
   showQuestion(shuffleQuestions[currentQuestionIndex]);
   currentQuestionIndex++;
+  correct = undefined;
 };
 //Then calling inittial function: This will display immediately:
 setNextQuestion();
 
-const callNext = (event) => {
+const checkAnswer = () => {
   if (correct === true) {
     addPoint();
+    for (let i = 0; i < questionsArray.length; i++) {
+      if (questionsArray[i].song) {
+        questionsArray[i].song.pause();
+      }
+    }
+    setNextQuestion();
+  } else if (correct === false) {
+    setNextQuestion();
+  } else if (correct === undefined) {
+    alert("you havent chosen an answer");
   }
+};
+
+const callNext = (event) => {
+  //still trying to get the button to display on the last question
   for (let i = 0; i < questionsArray.length; i++) {
-    if (questionsArray[i].song) {
-      questionsArray[i].song.pause();
+    if (currentQuestionIndex === questionsArray.length) {
+      getButton();
     }
   }
-  //sweetHome.pause();
-  //iCouldFall.pause();
-  setNextQuestion();
-  console.log("push");
+  for (let i = 0; i < 1; i++) {
+    checkAnswer();
+    console.log("push");
+  }
 };
 
 nextButton.addEventListener("click", callNext);
