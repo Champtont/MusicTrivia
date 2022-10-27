@@ -219,11 +219,6 @@ setNextQuestion();
 const checkAnswer = () => {
   if (correct === true) {
     addPoint();
-    for (let i = 0; i < questionsArray.length; i++) {
-      if (questionsArray[i].song) {
-        questionsArray[i].song.pause();
-      }
-    }
     setNextQuestion();
   } else if (correct === false) {
     setNextQuestion();
@@ -233,9 +228,14 @@ const checkAnswer = () => {
 };
 
 const callNext = (event) => {
+  for (let i = 0; i < questionsArray.length; i++) {
+    if (questionsArray[i].song) {
+      questionsArray[i].song.pause();
+    }
+  }
   //still trying to get the button to display on the last question
   for (let i = 0; i < questionsArray.length; i++) {
-    if (currentQuestionIndex === questionsArray.length) {
+    if (currentQuestionIndex === questionsArray.length - 1) {
       getButton();
     }
   }
@@ -246,4 +246,5 @@ const callNext = (event) => {
 };
 
 nextButton.addEventListener("click", callNext);
+finishButton.addEventListener("click", checkAnswer);
 //try to create a correct answer data set This should check answer inside next button

@@ -189,6 +189,26 @@ blockquote {
 .hide {
   display: none;
 }
+/*results page*/
+#personalMessage {
+  margin-bottom: 0.3em;
+}
+#results-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#results-box h2 {
+  margin: 0;
+}
+#results-bar {
+  height: 30px;
+  width: 80%;
+  background-image: linear-gradient(90deg, gold, red);
+  border: 2pt solid black;
+  margin-top: 1em;
+}
 
 /*Make it Responsive for mobile*/
 @media screen and (max-width: 767px) {
