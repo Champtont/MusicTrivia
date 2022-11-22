@@ -220,7 +220,7 @@ const setNextQuestion = () => {
 //Then calling inittial function: This will display immediately:
 setNextQuestion();
 
-const checkAnswer = () => {
+const checkAnswer = (event) => {
   if (correct === true) {
     addPoint();
     rightAnswer.play();
@@ -233,6 +233,28 @@ const checkAnswer = () => {
   } else if (correct === undefined) {
     alert("you havent selected an answer");
   }
+};
+
+const delay = (URL) => {
+  setTimeout(function () {
+    window.location = URL;
+  }, 1000);
+};
+
+const checkLast = (event) => {
+  if (correct === true) {
+    addPoint();
+    rightAnswer.play();
+    rightAnswer.currentTime = 0;
+  } else if (correct === false) {
+    wrongAnswer.play();
+    wrongAnswer.currentTime = 0;
+  } else if (correct === undefined) {
+    alert("you havent selected an answer");
+  }
+  //carry results to next page
+  const finishLink = document.getElementById("finishlink");
+  finishLink.href = `results.html?score=${score}&total=${maxQuestions}`;
 };
 
 const callNext = (event) => {
@@ -254,5 +276,5 @@ const callNext = (event) => {
 };
 
 nextButton.addEventListener("click", callNext);
-finishButton.addEventListener("click", checkAnswer);
+finishButton.addEventListener("click", checkLast);
 //try to create a correct answer data set This should check answer inside next button
