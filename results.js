@@ -14,7 +14,11 @@ h2.innerText = `You Scored: ${userScore} out of ${maxPoints}`;
 //let them know how they have done
 const h1 = document.querySelector("h1");
 if (percentage === 100) {
-  h1.innerText = `Wow! You Are A Music Nerd!`;
+  h1.innerText = `Wow! You're a Big Music Nerd!`;
 } else if (percentage < 100 && percentage >= 90) {
-  h1.innerText = `Great Job!`;
+  h1.innerText = `Cool, You're a bit Music Nerdy!`;
+} else if (percentage < 90 && percentage >= 60) {
+  h1.innerText = `OK, You Know a lil' bit!`;
+} else if (percentage < 60) {
+  h1.innerText = `Don't stop Believing!, try again`;
 }
