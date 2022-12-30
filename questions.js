@@ -17,12 +17,18 @@ let timeLeft = 10;
 const answerTimer = () => {
   setInterval(() => {
     if (timeLeft <= 0) {
-      clearInterval(answerTimer);
-      wrongAnswer.play();
-      wrongAnswer.currentTime = 0;
-      resetTimer();
-      callNext();
-      setNextQuestion();
+      if (currentQuestionIndex === questionsArray.length) {
+        window.location.replace(
+          `results.html?score=${score}&total=${maxQuestions}`
+        );
+      } else {
+        clearInterval(answerTimer);
+        wrongAnswer.play();
+        wrongAnswer.currentTime = 0;
+        resetTimer();
+        callNext();
+        setNextQuestion();
+      }
     } else {
       countdownBox.innerText = `${timeLeft - 1}`;
       if (timeLeft === 9) {
