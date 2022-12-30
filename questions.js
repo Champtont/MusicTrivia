@@ -6,6 +6,55 @@ const answerButtons = document.querySelectorAll(".stepford");
 const nextButton = document.getElementById("next");
 const finishButton = document.getElementById("getResults");
 
+//make progress bar match the count down
+const progressBar = document.getElementById("timer-progress");
+progressBar.style.background = `conic-gradient(transparent 0%, gold 0%)`;
+
+//adding a timer
+const countdownBox = document.getElementById("seconds");
+countdownBox.innerText = 10;
+let timeLeft = 10;
+const answerTimer = () => {
+  setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(answerTimer);
+      wrongAnswer.play();
+      wrongAnswer.currentTime = 0;
+      resetTimer();
+      callNext();
+      setNextQuestion();
+    } else {
+      countdownBox.innerText = `${timeLeft - 1}`;
+      if (timeLeft === 9) {
+        progressBar.style.background = `conic-gradient(transparent 15%, gold 15%)`;
+      } else if (timeLeft === 8) {
+        progressBar.style.background = `conic-gradient(transparent 30%, gold 30%)`;
+      } else if (timeLeft === 7) {
+        progressBar.style.background = `conic-gradient(transparent 40%, gold 40%)`;
+      } else if (timeLeft === 5) {
+        progressBar.style.background = `conic-gradient(transparent 50%, gold 50%)`;
+      } else if (timeLeft === 4) {
+        progressBar.style.background = `conic-gradient(transparent 60%, gold 60%)`;
+      } else if (timeLeft === 3) {
+        progressBar.style.background = `conic-gradient(transparent 70%, gold 70%)`;
+      } else if (timeLeft === 2) {
+        progressBar.style.background = `conic-gradient(transparent 80%, gold8 0%)`;
+      } else if (timeLeft === 1) {
+        progressBar.style.background = `conic-gradient(transparent 90%, gold 90%)`;
+      } else if (timeLeft === 0) {
+        progressBar.style.background = `conic-gradient(transparent 100%, gold 100%)`;
+      }
+    }
+    timeLeft -= 1;
+  }, 1000);
+};
+
+answerTimer();
+
+const resetTimer = () => {
+  timeLeft = 10;
+};
+
 //set songs for use in "What's that tune? type questions"
 const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
 const iCouldFall = new Audio("/assets/i could fall in love.mp3");
@@ -225,10 +274,12 @@ const checkAnswer = (event) => {
     addPoint();
     rightAnswer.play();
     rightAnswer.currentTime = 0;
+    resetTimer();
     setNextQuestion();
   } else if (correct === false) {
     wrongAnswer.play();
     wrongAnswer.currentTime = 0;
+    resetTimer();
     setNextQuestion();
   } else if (correct === undefined) {
     alert("you havent selected an answer");
