@@ -62,13 +62,13 @@ const resetTimer = () => {
 };
 
 //set songs for use in "What's that tune? type questions"
-const sweetHome = new Audio("/assets/Sweet Home Alabama.mp3");
-const iCouldFall = new Audio("/assets/i could fall in love.mp3");
-const weWillRockYou = new Audio("/assets/We Will Rock You.mp3");
+const sweetHome = new Audio("./assets/Sweet Home Alabama.mp3");
+const iCouldFall = new Audio("./assets/i could fall in love.mp3");
+const weWillRockYou = new Audio("./assets/We Will Rock You.mp3");
 
 //soundeffects
-const rightAnswer = new Audio("/assets/Ding-sound-effect.mp3");
-const wrongAnswer = new Audio("/assets/wronganswer-37702.mp3");
+const rightAnswer = new Audio("./assets/Ding-sound-effect.mp3");
+const wrongAnswer = new Audio("./assets/wronganswer-37702.mp3");
 
 console.log(answerButtons);
 //we need questions to work with! An Array of objects is required.
