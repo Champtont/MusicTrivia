@@ -80,10 +80,6 @@ body {
   left: 10px;
 }
 
-#centering-box {
-  height: 85vh;
-}
-
 #container {
   position: relative;
   width: 80%;
@@ -318,5 +314,65 @@ blockquote {
   }
   #getResults {
     margin-right: 5px;
+  }
+}
+/*responsive design*/
+
+@media only screen and (max-width: 960px) {
+  h1 {
+    font-size: 50pt;
+  }
+}
+@media only screen and (max-width: 798px) {
+  h1 {
+    font-size: 40pt;
+  }
+}
+@media only screen and (max-width: 638px) {
+  h1 {
+    font-size: 30pt;
+  }
+}
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 20pt;
+  }
+  #logo-box {
+    margin-bottom: 0.8em;
+  }
+  h2 {
+    font-size: 14pt;
+  }
+  #container {
+    width: 90%;
+    padding: 0.5em;
+  }
+  #choice-box {
+    display: block;
+  }
+  #score-box {
+    margin-bottom: 0.3em;
+  }
+  .stepford {
+    margin-bottom: 0.3em;
+  }
+  #next-reset {
+    flex-direction: column;
+  }
+  #reset {
+    margin-top: 0.3em;
+  }
+
+  #point-title,
+  #slash {
+    font-size: 14pt;
+  }
+  #next {
+    margin-right: 0;
+  }
+  .typical {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    margin-right: 0;
   }
 }
