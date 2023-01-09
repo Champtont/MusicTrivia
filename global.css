@@ -323,19 +323,37 @@ blockquote {
     font-size: 50pt;
   }
 }
-@media only screen and (max-width: 798px) {
+@media only screen and (max-width: 758px) {
   h1 {
     font-size: 40pt;
+  }
+  blockquote {
+    margin-top: 1em;
   }
 }
 @media only screen and (max-width: 638px) {
   h1 {
     font-size: 30pt;
+    margin-bottom: 0.5em;
+  }
+  blockquote {
+    margin-top: 0;
+  }
+  #choice-box {
+    gap: 0.2em;
+  }
+  .stepford {
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 400px) {
   h1 {
     font-size: 20pt;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  blockquote {
+    margin-top: 0;
   }
   #logo-box {
     margin-bottom: 0.8em;
