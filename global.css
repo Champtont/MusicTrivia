@@ -341,7 +341,7 @@ blockquote {
     margin-bottom: 0.8em;
   }
   h2 {
-    font-size: 14pt;
+    font-size: 12pt;
   }
   #container {
     width: 90%;
@@ -355,6 +355,7 @@ blockquote {
   }
   .stepford {
     margin-bottom: 0.3em;
+    padding: 0.5em 0;
   }
   #next-reset {
     flex-direction: column;
